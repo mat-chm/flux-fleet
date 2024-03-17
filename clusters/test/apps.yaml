@@ -5,8 +5,6 @@ metadata:
   name: eso-secrets
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: external-secrets-crs
   interval: 1m
   path: ./apps/base/external-secrets
   prune: true
