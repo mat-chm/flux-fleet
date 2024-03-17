@@ -6,8 +6,8 @@ metadata:
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: test
-  namespace: test
+  name: eso-test
+  namespace: external-secrets
 spec:
   refreshInterval: 1m           
   secretStoreRef:
