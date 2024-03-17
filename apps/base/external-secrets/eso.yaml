@@ -11,7 +11,7 @@ metadata:
 spec:
   refreshInterval: 1m           
   secretStoreRef:
-    kind: SecretStore
+    kind: ClusterSecretStore
     name: gcp-store
   target:
     name: eso-test
