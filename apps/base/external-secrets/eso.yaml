@@ -9,7 +9,7 @@ metadata:
   name: test
   namespace: test
 spec:
-  refreshInterval: 1h             
+  refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
     name: gcp-store
