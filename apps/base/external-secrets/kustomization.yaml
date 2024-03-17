@@ -4,3 +4,4 @@ namespace: external-secrets
 resources:
   - cluster-secret-store.yaml
   - eso.yaml
+  - namespace.yaml
