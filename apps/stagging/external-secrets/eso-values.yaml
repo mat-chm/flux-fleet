@@ -1,0 +1,9 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: eso-stagging
+spec:
+  refreshInterval: 1m           
+  secretStoreRef:
+    kind: SecretStore
+    name: gcp-store-stagging
