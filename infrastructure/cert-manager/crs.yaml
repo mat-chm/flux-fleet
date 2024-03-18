@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cert-manager
+    - name: cert-manager-crds
   interval: 10m
   path: ./infrastructure/cert-manager/crs
   prune: true
