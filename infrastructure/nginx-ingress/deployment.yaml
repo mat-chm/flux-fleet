@@ -15,25 +15,25 @@ spec:
         name: ingress-nginx
         namespace: flux-system
   interval: 5m
-  values:
-    controller:
-      config:
-        use-gzip: "true"
-        use-forwarded-headers: "true"
-        compute-full-forwarded-for: "true"
-        use-proxy-protocol: "true"
-      metrics:
-        enabled: "true"
-        serviceMonitor:
-          enabled: "true"
-          additionalLabels:
-            release: prometheus-operator
-      podAnnotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "10254"
-      service:
-        annotations:
-          kubernetes.io/ingress.class: gce
-          kubernetes.io/ingress.allow-http: "true"
-          kubernetes.io/ingress.global-static-ip-name: web-ip
+  # values:
+  #   controller:
+  #     config:
+  #       use-gzip: "true"
+  #       use-forwarded-headers: "true"
+  #       compute-full-forwarded-for: "true"
+  #       use-proxy-protocol: "true"
+  #     metrics:
+  #       enabled: "true"
+  #       serviceMonitor:
+  #         enabled: "true"
+  #         additionalLabels:
+  #           release: prometheus-operator
+  #     podAnnotations:
+  #       prometheus.io/scrape: "true"
+  #       prometheus.io/port: "10254"
+  #     service:
+  #       annotations:
+  #         kubernetes.io/ingress.class: gce
+  #         kubernetes.io/ingress.allow-http: "true"
+  #         kubernetes.io/ingress.global-static-ip-name: web-ip
   
