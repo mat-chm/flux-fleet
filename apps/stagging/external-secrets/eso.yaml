@@ -3,6 +3,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: eso-stagging
+  namespace: external-secrets
 spec:
   refreshInterval: 1m           
   secretStoreRef:
