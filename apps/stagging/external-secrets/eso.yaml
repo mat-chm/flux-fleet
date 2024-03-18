@@ -8,7 +8,7 @@ spec:
   refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
-    name: gcp-store
+    name: gcp-store-stagging
   target:
     name: eso-stagging
     creationPolicy: Owner

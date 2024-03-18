@@ -10,7 +10,7 @@ spec:
     kind: SecretStore
     name: gcp-store
   target:
-    name: eso-prod
+    name: gcp-store-prod
     creationPolicy: Owner
   data:
   - secretKey: test
