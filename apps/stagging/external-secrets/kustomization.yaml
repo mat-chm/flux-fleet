@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
   - ../../base/external-secrets
 patches:
-  - path: cluster-secret-store-values.yaml
+  - path: secret-store-values.yaml
     target:
-      kind: ClusterSecretStore
+      kind: SecretStore
   - path: eso-values.yaml
     target:
       kind: ExternalSecret
