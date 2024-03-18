@@ -7,4 +7,11 @@ spec:
   refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
-    name: gcp-store-prod
+    name: gcp-store
+  target:
+    name: eso-prod
+    creationPolicy: Owner
+  data:
+  - secretKey: test
+    remoteRef:
+      key: test
