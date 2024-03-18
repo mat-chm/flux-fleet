@@ -15,6 +15,11 @@ spec:
         name: ingress-nginx
         namespace: flux-system
   interval: 5m
+  values:
+    controller:
+      service:
+        externalTrafficPolicy: "Local"
+        loadBalancerIP: "35.227.239.170"
   # values:
   #   controller:
   #     config:
