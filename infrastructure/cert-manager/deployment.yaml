@@ -16,4 +16,4 @@ spec:
         name: cert-manager
         namespace: flux-system
   values:
-    installCRDs: false
+    installCRDs: true
