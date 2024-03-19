@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: apps/external-secrets-stagging
+  name: apps-eso-stagging
   namespace: flux-system
 spec:
   interval: 1m
@@ -12,11 +12,14 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
+  postBuild:
+    substitute:
+      external_secrets_project: "lmk-secrets-shrd-yvd7ff2153q0b"
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: external-secrets-test
+  name: apps-eso-test
   namespace: flux-system
 spec:
   interval: 1m
@@ -33,7 +36,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: elastic-test
+  name: apps-elastic-test
   namespace: flux-system
 spec:
   interval: 1m
