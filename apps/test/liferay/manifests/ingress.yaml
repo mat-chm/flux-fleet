@@ -1,0 +1,110 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: liferay-ingress
+  annotations:
+    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    cert-manager.io/issuer: letsencrypt-prod
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/duration: 2160h
+    cert-manager.io/renew-before: 360h
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  namespace: liferay
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: test.exam-center.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: liferay
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - test.exam-center.com
+      secretName: test.exam-center.com-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: liferay-ingress-react-app
+  annotations:
+    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    cert-manager.io/issuer: letsencrypt-prod
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/duration: 2160h
+    cert-manager.io/renew-before: 360h
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/rewrite-target: /#$2
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/([a-zA-Z0-9_-]+)$ /#$1 permanent;
+  namespace: liferay
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: test-start.lamark.com
+      # http:
+      #   paths:
+      #     - path: /([a-zA-Z0-9_-]+)
+      #       pathType: Prefix
+      #       # pathType: ImplementationSpecific
+      #       backend:
+      #         service:
+      #           name: liferay
+      #           port:
+      #             number: 8080
+      http:
+        paths:
+          - path: /
+            # pathType: Prefix
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: liferay
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - test-start.lamark.com
+      secretName: test-start.lamark.com-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: liferay-ingress-webservices
+  namespace: liferay
+  annotations:
+    cert-manager.io/issuer: letsencrypt-prod
+    cert-manager.io/issuer-kind: ClusterIssuer
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      # if ($request_uri ~* "^/lamark-portlets/api/secure/jsonws/remote/(.*)") {
+      #  rewrite ^/lamark-portlets/api/secure/jsonws/remote/(.*)$ https://test.exam-center.com/o/lamark-webservices/$1 permanent;
+      # rewrite ^/lamark-portlets/api/secure/jsonws/remote/(.*)$ https://test.exam-center.com/o/lamark-webservices/$1 break;
+      # }
+      rewrite ^/lamark-portlets/api/secure/jsonws/remote/(.*)$ https://test.exam-center.com/o/lamark-webservices/$1 break;
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: test-webservices.exam-center.com
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: "/lamark-portlets/api/secure/jsonws/remote"
+            backend:
+              service:
+                name: liferay
+                port:
+                  number: 8080
+  tls:
+  - hosts:
+      - test-webservices.exam-center.com
+    secretName: test-webservices.exam-center.com-tls

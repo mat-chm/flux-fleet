@@ -1,0 +1,97 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: liferay-portal-ext-properties
+  namespace: liferay
+data:
+  portal-ext.properties: |-
+    include-and-override=portal-developer.properties
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: liferay-portal-setup-wizard-properties
+  namespace: liferay
+data:
+  portal-setup-wizard.properties: |-
+    admin.email.from.address=test@liferay.com
+    admin.email.from.name=Test Test
+    company.default.time.zone=UTC
+    company.default.web.id=liferay.com
+    default.admin.email.address.prefix=test
+    liferay.home=/opt/liferay
+    setup.wizard.enabled=false
+
+    # Database
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
+    jdbc.default.url=jdbc:mysql://liferay-database-mysql.liferay.svc.cluster.local:3306/lamark_dxp?serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
+    jdbc.default.username=root
+
+    # Protocol
+    web.server.protocol=https
+
+    # Mail
+    # mail.session.mail.transport.protocol=smtp
+    # mail.session.mail.smtp.ssl.enable=true
+    # mail.session.mail.smtp.starttls.enable=true
+    # mail.session.mail.smtp.auth=true
+    # mail.session.mail.smtp.host=email-smtp.eu-central-1.amazonaws.com
+    # mail.session.mail.smtp.port=587
+    # mail.session.mail.smtp.user=<> # SES SMTP Username
+    # mail.session.mail.smtp.password=<> # SES SMTP Password
+
+    # Locales
+    company.default.locale=nl_NL
+    locales.enabled=nl_NL,en_GB,en_US
+
+    # JS
+    javascript.fast.load=false
+    theme.css.fast.load=false
+    minifier.enabled=false
+    javascript.single.page.application.enabled=false
+
+    # Session Timeout
+    session.timeout.auto.extend=true
+    session.timeout=600
+    session.timeout.warning=600
+
+    # Disable Service Builder tables auto-upgrade
+    upgrade.database.auto.run=true
+    schema.module.build.auto.upgrade=false
+
+    session.store.password=true
+    session.enable.persistent.cookies=false
+
+    users.reminder.queries.enabled=false
+    terms.of.use.required=false
+
+    default.landing.page.path=/web/guest/home
+    layout.friendly.url.page.not.found=/html/portal/errors/404.html
+
+    company.security.auth.type=screenName
+
+    login.create.account.allow.custom.password=false
+
+    users.screen.name.validator=com.liferay.portal.security.auth.LiberalScreenNameValidator
+
+    users.email.address.required=false
+
+    layout.user.private.layouts.enabled=false
+    layout.user.public.layouts.enabled=false
+
+    layout.default.template.id=3_columns_i
+    default.layout.template.id=3_columns_i
+
+    theme.jsp.override.enabled=true
+
+    com.liferay.portal.servlet.filters.gzip.GZipFilter=true
+
+    auth.pipeline.pre=com.lamark.twofa.authenticator.TwoFAAuthenticator
+
+    company.security.update.password.required=false
+
+    default.user.private.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
+    default.user.public.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
+
+    search.container.page.delta.values=5,10,20,30,50,75

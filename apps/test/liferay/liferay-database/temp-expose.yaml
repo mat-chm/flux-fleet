@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: expose-liferay-db
+  namespace: liferay
+spec:
+ selector:
+    app.kubernetes.io/name: mysql
+ ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: mysql
+    nodePort: 30007
+ type: NodePort

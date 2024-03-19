@@ -1,0 +1,117 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: liferay
+  name: liferay
+  namespace: liferay
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: liferay
+  publishNotReadyAddresses: true
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liferay
+  namespace: liferay
+  labels:
+    app: liferay
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: liferay
+  template:
+    metadata:
+      labels:
+        app: liferay
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+      containers:
+        - name: liferay
+          image: liferay/portal:7.4.3.29-ga29
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 11311
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: "/c/portal/layout"
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 15
+            failureThreshold: 3
+            successThreshold: 3
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 20
+            failureThreshold: 3
+            successThreshold: 1
+          resources:
+            limits:
+              cpu: "3"
+              memory: 12Gi
+            requests:
+              cpu: "1"
+              memory: 2Gi
+          env:
+            - name: LIFERAY_JVM_OPTS
+              value: "-Xms8192m -Xmx8192m -Dfile.encoding=UTF-8 -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -Duser.timezone=GMT -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
+            - name: LIFERAY_MODULE_PERIOD_FRAMEWORK_PERIOD_PROPERTIES_PERIOD_OSGI_PERIOD_CONSOLE
+              value: 0.0.0.0:11311
+            - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_DELAY
+              value: "10"
+            - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_MAX_PERIOD_RETRIES
+              value: "10"
+            - name: JAVA_VERSION
+              value: "zulu11"
+            - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: liferay-database-credentials
+                  key: mysql-root-password
+          volumeMounts:
+            - mountPath: /opt/liferay/data
+              name: liferay-data
+            - mountPath: /mnt/liferay
+              name: liferay-mnt
+            - mountPath: /opt/liferay/osgi
+              name: liferay-osgi
+            - mountPath: /opt/liferay/portal-ext.properties
+              name: liferay-portal-ext-properties
+              subPath: portal-ext.properties
+            - mountPath: /opt/liferay/portal-setup-wizard.properties
+              name: liferay-portal-setup-wizard-properties
+              subPath: portal-setup-wizard.properties
+            - mountPath: /opt/lamark/conf/keystore.jceks
+              name: keystore
+              subPath: keystore.jceks
+      volumes:
+        - name: liferay-data
+          persistentVolumeClaim:
+            claimName: liferay-data
+        - name: liferay-mnt
+          persistentVolumeClaim:
+            claimName: liferay-mnt
+        - name: liferay-osgi
+          persistentVolumeClaim:
+            claimName: liferay-osgi
+        - name: liferay-portal-ext-properties
+          configMap:
+            name: liferay-portal-ext-properties
+        - name: liferay-portal-setup-wizard-properties
+          configMap:
+            name: liferay-portal-setup-wizard-properties
+        - name: keystore
+          secret:
+            secretName: keystore
