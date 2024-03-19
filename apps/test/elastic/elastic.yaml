@@ -37,13 +37,13 @@ spec:
     ingest:
       enabled: false
       replicaCount: 0
-    metrics:
-      enabled: true
-      serviceMonitor:
-        enabled: true
-        namespace: monitoring
-        interval: 10s
-        scrapeTimeout: 10s
-        additionalLabels:
-          release: prometheus-operator
-    plugins: "analysis-icu,analysis-kuromoji,analysis-smartcn,analysis-stempel"
+    # metrics:
+    #   enabled: true
+    #   serviceMonitor:
+    #     enabled: true
+    #     namespace: monitoring
+    #     interval: 10s
+    #     scrapeTimeout: 10s
+    #     additionalLabels:
+    #       release: prometheus-operator
+    # plugins: "analysis-icu,analysis-kuromoji,analysis-smartcn,analysis-stempel"
