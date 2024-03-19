@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - volumeclaims.yaml
   - configmaps.yaml
-  - temp-expose.yaml
+  # - temp-expose.yaml
   - liferay.yaml
   - database.yaml
-  - ingress.yaml
+  # - ingress.yaml
