@@ -38,15 +38,15 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/ingress.allow-http: "true"
-    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - gke.chmielewski.dev
-    secretName: quickstart-example-tls
+    - qa.chmielewski.dev
+    secretName: chmielewski-dev-qa-crt
   rules:
-  - host: gke.chmielewski.dev
+  - host: qa.chmielewski.dev
     http:
       paths:
       - path: /
@@ -56,3 +56,17 @@ spec:
             name: kuard
             port:
               number: 80
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: chmielewski-dev-qa-crt
+  namespace : cert-manager
+spec:
+  secretName: chmielewski-dev-qa-crt
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: 'qa.chmielewski.dev'
+  dnsNames:
+  - "qa.chmielewski.dev"

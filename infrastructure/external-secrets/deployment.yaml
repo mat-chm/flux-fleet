@@ -5,8 +5,6 @@ metadata:
   name: external-secrets
   namespace: flux-system
 spec:
-  # Override Release name to avoid the pattern Namespace-Release
-  # Ref: https://fluxcd.io/docs/components/helm/api/#helm.toolkit.fluxcd.io/v2beta1.HelmRelease
   releaseName: external-secrets
   targetNamespace: external-secrets
   interval: 10m
@@ -20,7 +18,10 @@ spec:
         namespace: flux-system
   values:
     installCRDs: false
-
-  # Ref: https://fluxcd.io/docs/components/helm/api/#helm.toolkit.fluxcd.io/v2beta1.Install
+    serviceAccount:
+      annotations:
+        iam.gke.io/gcp-service-account: external-secrets@${PROJECT_ID}.iam.gserviceaccount.com
+    nodeSelector:
+      iam.gke.io/gke-metadata-server-enabled: "true"
   install:
     createNamespace: true
