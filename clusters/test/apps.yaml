@@ -28,7 +28,7 @@ spec:
     - name: infra-eso-test
   interval: 1m
   path: ./apps/test/external-secrets
-  prune: true
+  prune: true 
   sourceRef:
     kind: GitRepository
     name: flux-system
