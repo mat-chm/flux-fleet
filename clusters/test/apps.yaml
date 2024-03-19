@@ -5,6 +5,8 @@ metadata:
   name: apps-eso-stagging
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: infra-eso-test
   interval: 1m
   path: ./apps/stagging/external-secrets
   prune: true
@@ -22,6 +24,8 @@ metadata:
   name: apps-eso-test
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: infra-eso-test
   interval: 1m
   path: ./apps/test/external-secrets
   prune: true
