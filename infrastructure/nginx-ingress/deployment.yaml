@@ -19,7 +19,7 @@ spec:
     controller:
       service:
         externalTrafficPolicy: "Local"
-        loadBalancerIP: ${LB_IP}
+        loadBalancerIP: ${lb_ip}
       config:
         use-gzip: "true"
         use-forwarded-headers: "true"
