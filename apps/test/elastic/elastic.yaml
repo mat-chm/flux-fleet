@@ -19,24 +19,24 @@ spec:
   values:
     image:
       tag: 7.17.14
-    master:
-      replicaCount: 1
-      masterOnly: false
-      resources:
-        limits:
-          cpu: 2000m
-          memory: 4Gi
-        requests:
-          cpu: 100m
-          memory: 4Gi
-      heapSize: 2g
-    data:
-      replicaCount: 0
-    coordinating:
-      replicaCount: 0
-    ingest:
-      enabled: false
-      replicaCount: 0
+    # master:
+    #   replicaCount: 1
+    #   masterOnly: false
+    #   resources:
+    #     limits:
+    #       cpu: 2000m
+    #       memory: 4Gi
+    #     requests:
+    #       cpu: 100m
+    #       memory: 4Gi
+    #   heapSize: 2g
+    # data:
+    #   replicaCount: 0
+    # coordinating:
+    #   replicaCount: 0
+    # ingest:
+    #   enabled: false
+    #   replicaCount: 0
     # metrics:
     #   enabled: true
     #   serviceMonitor:
