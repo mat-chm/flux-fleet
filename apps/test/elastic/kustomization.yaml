@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - elastic.yaml
   - namespace.yaml
-  
+  - repositories.yaml
