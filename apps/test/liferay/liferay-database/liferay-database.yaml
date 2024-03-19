@@ -57,7 +57,7 @@ spec:
         pid-file=/opt/bitnami/mysql/tmp/mysqld.pid
       persistence:
         enabled: true
-        storageClass: hcloud-volumes
+        storageClass:
         accessModes:
           - ReadWriteOnce
         size: 15Gi
