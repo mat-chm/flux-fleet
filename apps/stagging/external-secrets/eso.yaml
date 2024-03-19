@@ -3,16 +3,25 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: eso-stagging
-  namespace: external-secrets
+  namespace: liferay
 spec:
   refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
     name: gcp-store-stagging
   target:
-    name: eso-stagging
+    name: iferay-database-credentials
     creationPolicy: Owner
   data:
-  - secretKey: test-secret
+  - secretKey: mysql-root-password
     remoteRef:
-      key: test
+      key: mysql-root-password-test
+  - secretKey: mysql-replication-password
+    remoteRef:
+      key: mysql-replication-password-test
+  - secretKey: mysql-password
+    remoteRef:
+      key: mysql-password-test
+  - secretKey: keystore-jceks
+    remoteRef:
+      key:keystore-jceks-test
