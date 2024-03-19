@@ -19,7 +19,7 @@ spec:
     controller:
       service:
         externalTrafficPolicy: "Local"
-        loadBalancerIP: "35.227.239.170" 
+        loadBalancerIP: "35.234.92.139" 
   # values:
   #   controller:
   #     config:

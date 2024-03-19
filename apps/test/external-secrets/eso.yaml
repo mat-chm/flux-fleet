@@ -13,6 +13,6 @@ spec:
     name: eso-test
     creationPolicy: Owner
   data:
-  - secretKey: test
+  - secretKey: test-secret
     remoteRef:
       key: test
