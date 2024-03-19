@@ -24,4 +24,4 @@ spec:
       key: mysql-password-test
   - secretKey: keystore-jceks
     remoteRef:
-      key:keystore-jceks-test
+      key: keystore-jceks-test
