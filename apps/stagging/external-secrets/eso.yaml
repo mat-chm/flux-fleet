@@ -16,7 +16,7 @@ spec:
   - secretKey: mysql-root-password
     remoteRef:
       key: mysql-root-password-test
-  - secretKey: mysql-replication-password
+  - secretKey: mysql-replication-password 
     remoteRef:
       key: mysql-replication-password-test
   - secretKey: mysql-password
