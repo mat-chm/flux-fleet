@@ -25,3 +25,6 @@ spec:
   - secretKey: keystore-jceks
     remoteRef:
       key: keystore-jceks-test
+  - secretKey: keystore
+    remoteRef:
+      key: keystore-test
