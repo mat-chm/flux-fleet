@@ -10,7 +10,7 @@ spec:
     kind: SecretStore
     name: gcp-store-test
   target:
-    name: eso-test
+    name: liferay-database-credentials-test
     creationPolicy: Owner
   data:
   - secretKey: test-secret
