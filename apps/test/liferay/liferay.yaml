@@ -90,18 +90,18 @@ spec:
               name: liferay-mnt
             - mountPath: /opt/liferay/osgi
               name: liferay-osgi
-            # - mountPath: /opt/liferay/portal-ext.properties
-            #   name: liferay-portal-ext-properties
-            #   subPath: portal-ext.properties
-            # - mountPath: /opt/liferay/osgi/configs/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
-            #   name: elasticsearch-configuration-cfg
-            #   subPath: com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
-            # - mountPath: /opt/liferay/portal-setup-wizard.properties
-            #   name: liferay-portal-setup-wizard-properties
-            #   subPath: portal-setup-wizard.properties
-            # - mountPath: /opt/lamark/conf/keystore.jceks
-            #   name: keystore 
-            #   subPath: keystore.jceks
+            - mountPath: /mnt/liferay/files/portal-ext.properties
+              name: liferay-portal-ext-properties
+              subPath: portal-ext.properties
+            - mountPath: /mnt/liferay/files/osgi/configs/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+              name: elasticsearch-configuration-cfg
+              subPath: com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+            - mountPath: /mnt/liferay/files/portal-setup-wizard.properties
+              name: liferay-portal-setup-wizard-properties
+              subPath: portal-setup-wizard.properties
+            - mountPath: /opt/lamark/conf/keystore.jceks
+              name: keystore 
+              subPath: keystore.jceks
       volumes:
         - name: liferay-data
           persistentVolumeClaim:
@@ -112,15 +112,15 @@ spec:
         - name: liferay-osgi
           persistentVolumeClaim:
             claimName: liferay-osgi
-        # - name: liferay-portal-ext-properties
-        #   configMap:
-        #     name: liferay-portal-ext-properties
-        # - name: liferay-portal-setup-wizard-properties
-        #   configMap:
-        #     name: liferay-portal-setup-wizard-properties
-        # - name: keystore
-        #   secret:
-        #     secretName: keystore
-        # - name: elasticsearch-configuration-cfg
-        #   configMap:
-        #     name: elasticsearch-configuration-cfg
+        - name: liferay-portal-ext-properties
+          configMap:
+            name: liferay-portal-ext-properties
+        - name: liferay-portal-setup-wizard-properties
+          configMap:
+            name: liferay-portal-setup-wizard-properties
+        - name: keystore
+          secret:
+            secretName: keystore
+        - name: elasticsearch-configuration-cfg
+          configMap:
+            name: elasticsearch-configuration-cfg
