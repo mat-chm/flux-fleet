@@ -5,6 +5,6 @@ resources:
   - volumeclaims.yaml
   - configmaps.yaml
   # - temp-expose.yaml
-  - liferay.yaml
   - database.yaml
+  - liferay.yaml
   # - ingress.yaml

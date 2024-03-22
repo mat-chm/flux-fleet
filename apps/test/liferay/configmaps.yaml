@@ -21,7 +21,7 @@ data:
     company.default.web.id=liferay.com
     default.admin.email.address.prefix=test
     liferay.home=/opt/liferay
-    setup.wizard.enabled=false
+    setup.wizard.enabled=true
 
     # Database
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
@@ -29,7 +29,7 @@ data:
     jdbc.default.username=root
 
     # Protocol
-    web.server.protocol=https
+    web.server.protocol=http
 
     # Mail
     # mail.session.mail.transport.protocol=smtp
@@ -95,3 +95,16 @@ data:
     default.user.public.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
 
     search.container.page.delta.values=5,10,20,30,50,75
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch-configuration-cfg
+  namespace: liferay
+data:
+  com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config: |-
+    operationMode="REMOTE"
+    indexNamePrefix="liferay-"
+    transportAddresses="elasticsearch.elasticsearch.svc.cluster.local:9300"
+    clusterName="lamark-dxp-poc"
+    logExceptionsOnly="false"

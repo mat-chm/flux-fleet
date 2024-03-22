@@ -100,5 +100,5 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 10Gi
-    metrics:
-      enabled: true
+    # metrics:
+    #   enabled: true
