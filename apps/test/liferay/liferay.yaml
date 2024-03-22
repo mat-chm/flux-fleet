@@ -78,11 +78,11 @@ spec:
               value: "domain"            
             - name: JAVA_VERSION
               value: "zulu11"
-            - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: liferay-database-credentials
-                  key: mysql-root-password
+            # - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: liferay-database-credentials
+            #       key: mysql-root-password
           volumeMounts:
             - mountPath: /opt/liferay/data
               name: liferay-data
