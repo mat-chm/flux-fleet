@@ -76,8 +76,8 @@ spec:
               value: "true"
             - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE
               value: "domain"            
-            - name: JAVA_VERSION
-              value: "zulu11"
+            # - name: JAVA_VERSION
+            #   value: "zulu11"
             - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
               valueFrom:
                 secretKeyRef:
