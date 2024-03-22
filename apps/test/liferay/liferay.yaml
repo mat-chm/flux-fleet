@@ -65,7 +65,7 @@ spec:
               memory: 4Gi
           env:
             - name: LIFERAY_JVM_OPTS
-              value: "-Xms8192m -Xmx8192m" # -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
+              value: "-Xms8192m -Xmx8192m -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
             - name: LIFERAY_MODULE_PERIOD_FRAMEWORK_PERIOD_PROPERTIES_PERIOD_OSGI_PERIOD_CONSOLE
               value: 0.0.0.0:11311
             - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_DELAY
