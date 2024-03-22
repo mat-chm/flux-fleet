@@ -1,0 +1,230 @@
+[LIFERAY] To SSH into this container, run: "docker exec -it liferay-7cdfd96cc4-tz69p /bin/bash".
+
+[LIFERAY] Using zulu11 JDK. You can use another JDK by setting the "JAVA_VERSION" environment variable.
+[LIFERAY] Available JDKs: zulu11, zulu8.
+[LIFERAY] Copying files from /mnt/liferay/files:
+
+/mnt/liferay/files
+├── osgi
+│   ├── configs
+│   │   └── com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+│   ├── modules
+│   └── war
+├── portal-ext.properties
+└── portal-setup-wizard.properties
+
+[LIFERAY] ... into /opt/liferay.
+cp: cannot create regular file '/opt/liferay/osgi/configs/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config': Permission denied
+
+[LIFERAY] The directory /mnt/liferay/deploy is ready. Copy files to $(pwd)/xyz123/deploy on the host operating system to deploy modules to Liferay Portal at runtime.
+
+[LIFERAY] Starting Liferay Portal. To stop the container with CTRL-C, run this container with the option "-it".
+
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=jdk.zipfs/jdk.nio.zipfs=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+22-Mar-2024 14:11:46.665 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [743] milliseconds
+Loading jar:file:/opt/liferay/tomcat/webapps/ROOT/WEB-INF/shielded-container-lib/portal-impl.jar!/system.properties
+Loading jar:file:/opt/liferay/tomcat/webapps/ROOT/WEB-INF/shielded-container-lib/portal-impl.jar!/portal.properties
+Loading file:/opt/liferay/portal-ext.properties
+Loading file:/opt/liferay/tomcat/webapps/ROOT/WEB-INF/classes/portal-developer.properties
+Loading file:/opt/liferay/portal-setup-wizard.properties
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+2024-03-22 14:11:48.611 INFO  [main][PortalContextLoaderListener:114] JVM arguments: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=jdk.zipfs/jdk.nio.zipfs=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED -Djava.util.logging.config.file=/opt/liferay/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dfile.encoding=UTF-8 -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -Duser.timezone=GMT -Xms2560m -Xmx2560m -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=768m -XX:MetaspaceSize=768m -XX:NewSize=1536m -XX:SurvivorRatio=7 -Xms4g -Xmx4g -Xdebug -Dignore.endorsed.dirs= -Dcatalina.base=/opt/liferay/tomcat -Dcatalina.home=/opt/liferay/tomcat -Djava.io.tmpdir=/opt/liferay/tomcat/temp
+!SESSION 2024-03-22 14:11:48.723 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.22
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+
+!ENTRY org.eclipse.osgi 4 0 2024-03-22 14:11:48.723
+!MESSAGE Error reading configuration: Unable to create lock manager.
+!STACK 0
+java.io.IOException: Unable to create lock manager.
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:698)
+	at org.eclipse.osgi.storage.Storage.getChildStorageManager(Storage.java:2011)
+	at org.eclipse.osgi.storage.Storage.getInfoInputStream(Storage.java:2028)
+	at org.eclipse.osgi.storage.Storage.<init>(Storage.java:216)
+	at org.eclipse.osgi.storage.Storage.createStorage(Storage.java:151)
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:67)
+	at org.eclipse.osgi.launch.Equinox.<init>(Equinox.java:31)
+	at org.eclipse.osgi.launch.EquinoxFactory.newFramework(EquinoxFactory.java:24)
+	at com.liferay.portal.bootstrap.ModuleFrameworkImpl.createFramework(ModuleFrameworkImpl.java:162)
+	at com.liferay.portal.module.framework.ModuleFrameworkUtil.createFramework(ModuleFrameworkUtil.java:24)
+	at com.liferay.portal.spring.context.PortalContextLoaderListener._contextInitialized(PortalContextLoaderListener.java:364)
+	at com.liferay.portal.spring.context.PortalContextLoaderListener.contextInitialized(PortalContextLoaderListener.java:213)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.liferay.shielded.container.internal.proxy.ContextClassLoaderInvocationHandler.invoke(ContextClassLoaderInvocationHandler.java:34)
+	at com.liferay.shielded.container.internal.proxy.EventListenerInvocationHandler.invoke(EventListenerInvocationHandler.java:55)
+	at com.sun.proxy.$Proxy6.contextInitialized(Unknown Source)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4460)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4914)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:689)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1888)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:582)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:472)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1617)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:318)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+	at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+2024-03-22 14:11:48.724 ERROR [main][PortalContextLoaderListener:70] null
+java.lang.RuntimeException: Error initializing storage.
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:69) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.launch.Equinox.<init>(Equinox.java:31) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.launch.EquinoxFactory.newFramework(EquinoxFactory.java:24) ~[org.eclipse.osgi.jar:?]
+	at com.liferay.portal.bootstrap.ModuleFrameworkImpl.createFramework(ModuleFrameworkImpl.java:162) ~[com.liferay.portal.bootstrap.jar:?]
+	at com.liferay.portal.module.framework.ModuleFrameworkUtil.createFramework(ModuleFrameworkUtil.java:24) ~[portal-impl.jar:?]
+	at com.liferay.portal.spring.context.PortalContextLoaderListener._contextInitialized(PortalContextLoaderListener.java:364) ~[portal-impl.jar:?]
+	at com.liferay.portal.spring.context.PortalContextLoaderListener.contextInitialized(PortalContextLoaderListener.java:213) [portal-impl.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.liferay.shielded.container.internal.proxy.ContextClassLoaderInvocationHandler.invoke(ContextClassLoaderInvocationHandler.java:34) [com.liferay.shielded.container.impl.jar:?]
+	at com.liferay.shielded.container.internal.proxy.EventListenerInvocationHandler.invoke(EventListenerInvocationHandler.java:55) [com.liferay.shielded.container.impl.jar:?]
+	at com.sun.proxy.$Proxy6.contextInitialized(Unknown Source) [?:?]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4460) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4914) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:689) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1888) [catalina.jar:9.0.83]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.83]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118) [?:?]
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:582) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:472) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1617) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:318) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) [catalina.jar:9.0.83]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.83]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) [?:?]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.83]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347) [bootstrap.jar:9.0.83]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478) [bootstrap.jar:9.0.83]
+Caused by: java.io.IOException: Unable to create lock manager.
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:698) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.storage.Storage.getChildStorageManager(Storage.java:2011) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.storage.Storage.getInfoInputStream(Storage.java:2028) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.storage.Storage.<init>(Storage.java:216) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.storage.Storage.createStorage(Storage.java:151) ~[org.eclipse.osgi.jar:?]
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:67) ~[org.eclipse.osgi.jar:?]
+	... 54 more
+2024-03-22 14:11:48.790 INFO  [main][DBManagerImpl:69] Using dialect null
+2024-03-22 14:11:48.791 ERROR [main][DBManagerImpl:81] null
+java.lang.NullPointerException: null
+	at java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011) ~[?:?]
+	at java.util.concurrent.ConcurrentHashMap.putIfAbsent(ConcurrentHashMap.java:1541) ~[?:?]
+	at java.lang.ClassLoader.getClassLoadingLock(ClassLoader.java:673) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:574) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:527) ~[?:?]
+	at com.liferay.portal.kernel.util.InstanceFactory.newInstance(InstanceFactory.java:47) ~[portal-kernel.jar:?]
+	at com.liferay.portal.kernel.util.InstanceFactory.newInstance(InstanceFactory.java:18) ~[portal-kernel.jar:?]
+	at com.liferay.portal.kernel.util.InstanceFactory.newInstance(InstanceFactory.java:62) ~[portal-kernel.jar:?]
+	at com.liferay.portal.dao.db.DBManagerImpl.getDB(DBManagerImpl.java:72) [portal-impl.jar:?]
+	at com.liferay.portal.dao.db.DBManagerImpl.getDBType(DBManagerImpl.java:144) [portal-impl.jar:?]
+	at com.liferay.portal.kernel.dao.db.DBManagerUtil.getDBType(DBManagerUtil.java:50) [portal-kernel.jar:?]
+	at com.liferay.portal.spring.context.PortalContextLoaderListener.contextDestroyed(PortalContextLoaderListener.java:153) [portal-impl.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.liferay.shielded.container.internal.proxy.ContextClassLoaderInvocationHandler.invoke(ContextClassLoaderInvocationHandler.java:34) [com.liferay.shielded.container.impl.jar:?]
+	at com.liferay.shielded.container.internal.proxy.EventListenerInvocationHandler.invoke(EventListenerInvocationHandler.java:55) [com.liferay.shielded.container.impl.jar:?]
+	at com.sun.proxy.$Proxy6.contextDestroyed(Unknown Source) [?:?]
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4506) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5147) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:242) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:175) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:689) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1888) [catalina.jar:9.0.83]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.83]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118) [?:?]
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:582) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:472) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1617) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:318) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) [catalina.jar:9.0.83]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.83]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) [?:?]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921) [catalina.jar:9.0.83]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171) [catalina.jar:9.0.83]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.83]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347) [bootstrap.jar:9.0.83]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478) [bootstrap.jar:9.0.83]
