@@ -66,15 +66,15 @@ spec:
               memory: 4Gi
           env:
             - name: LIFERAY_JVM_OPTS
-              value: "-Xms8g -Xmx8g -Dlog4j2.formatMsgNoLookups=true -Dfile.encoding=UTF8 -Duser.timezone=GMT -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
+              value: "-Xms8g -Xmx8g" #-Dlog4j2.formatMsgNoLookups=true -Dfile.encoding=UTF8 -Duser.timezone=GMT -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
             - name: LIFERAY_MODULE_PERIOD_FRAMEWORK_PERIOD_PROPERTIES_PERIOD_OSGI_PERIOD_CONSOLE
               value: 0.0.0.0:11311
-            - name: LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN
-              value: "true"
-            - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_DELAY
-              value: "10"
-            - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_MAX_PERIOD_RETRIES
-              value: "10"
+            # - name: LIFERAY_UPGRADE_PERIOD_DATABASE_PERIOD_AUTO_PERIOD_RUN
+            #   value: "true"
+            # - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_DELAY
+            #   value: "10"
+            # - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_MAX_PERIOD_RETRIES
+            #   value: "10"
             # - name: LIFERAY_WEB_PERIOD_SERVER_PERIOD_DISPLAY_PERIOD_NODE
             #   value: "true"
             # - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE
