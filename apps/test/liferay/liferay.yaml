@@ -36,7 +36,7 @@ spec:
         runAsUser: 0
       containers:
         - name: liferay
-          image: liferay/portal:7.3.1-ga2
+          image: liferay/portal:7.4.3.29-ga29
           imagePullPolicy: Always
           ports:
             - containerPort: 11311

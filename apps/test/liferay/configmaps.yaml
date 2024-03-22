@@ -22,12 +22,12 @@ data:
     default.admin.email.address.prefix=test
     liferay.home=/opt/liferay
     setup.wizard.enabled=true
-
+ 
     # Database
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://liferay-database-mysql.liferay.svc.cluster.local:3306/lamark_dxp?serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
     jdbc.default.username=root
-
+ 
     # Protocol
     web.server.protocol=http
 
