@@ -32,8 +32,10 @@ spec:
       labels:
         app: liferay
     spec:
-      # securityContext:
-      #   runAsUser: 0
+      securityContext:
+          fsGroup: 1001 #<--- change here
+          runAsUser: 1001
+          runAsGroup: 1001
       containers:
         - name: liferay
           image: liferay/portal:7.4.3.112-ga112
