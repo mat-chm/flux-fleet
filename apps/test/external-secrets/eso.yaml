@@ -8,7 +8,7 @@ spec:
   refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
-    name: gcp-store-stagging
+    name: gcp-store-test
   target:
     name: liferay-database-credentials
     creationPolicy: Owner
@@ -35,7 +35,7 @@ spec:
   refreshInterval: 1m           
   secretStoreRef:
     kind: SecretStore
-    name: gcp-store-stagging
+    name: gcp-store-test
   target:
     name: keystore
     creationPolicy: Owner
