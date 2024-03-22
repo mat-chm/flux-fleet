@@ -32,9 +32,9 @@ spec:
       labels:
         app: liferay
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
+      # securityContext:
+      #   fsGroup: 1000
+      #   runAsUser: 1000
       containers:
         - name: liferay
           image: liferay/portal:7.4.3.29-ga29
