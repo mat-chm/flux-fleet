@@ -181,16 +181,23 @@ data:
 
     users.email.address.required=false
 
-    layout.user.private.layouts.enabled=false
-    layout.user.public.layouts.enabled=false
+    # layout.user.private.layouts.enabled=false
+    # layout.user.public.layouts.enabled=false
 
-    layout.default.template.id=3_columns_i
-    default.layout.template.id=3_columns_i
+    # layout.default.template.id=3_columns_i
+    # default.layout.template.id=3_columns_i
 
-    theme.jsp.override.enabled=true
+    # theme.jsp.override.enabled=true
 
-    com.liferay.portal.servlet.filters.gzip.GZipFilter=true
-    company.security.update.password.required=false
+    # com.liferay.portal.servlet.filters.gzip.GZipFilter=true
+
+    # auth.pipeline.pre=com.lamark.twofa.authenticator.TwoFAAuthenticator
+
+    # company.security.update.password.required=false
+
+    # default.user.private.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
+    # default.user.public.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
+
     search.container.page.delta.values=5,10,20,30,50,75
 
 ---
