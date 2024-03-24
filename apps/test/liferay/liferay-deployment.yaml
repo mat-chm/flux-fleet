@@ -57,12 +57,10 @@ metadata:
   name: liferay
   namespace: liferay
 spec:
-  replicas: 1 #Inicialmente crearemos 1 pod de este deployment
+  replicas: 1
   selector:
     matchLabels:
       app: liferay
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
