@@ -56,7 +56,6 @@ metadata:
     app: liferay
   name: liferay
   namespace: liferay
-
 spec:
   replicas: 1 #Inicialmente crearemos 1 pod de este deployment
   selector:
@@ -111,6 +110,12 @@ spec:
           name: liferay-data
         - mountPath: /mnt/liferay
           name: liferay-config
+        - mountPath: /mnt/liferay/files/portal-ext.properties
+          name: liferay-portal-ext-properties
+          subPath: portal-ext.properties
+        - mountPath: /mnt/liferay/files/osgi/configs/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+          name: elasticsearch-configuration-cfg
+          subPath: com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config          
       restartPolicy: Always #politica de reinicio ante errores en el contenedor
       volumes: # descripcion de los volumenes y pvc
       - name: liferay-data
@@ -119,3 +124,9 @@ spec:
       - name: liferay-config
         persistentVolumeClaim:
           claimName: liferay-config
+      - name: elasticsearch-configuration-cfg
+        configMap:
+          name: elasticsearch-configuration-cfg
+      - name: liferay-portal-ext-properties
+        configMap:
+          name: liferay-portal-ext-properties
