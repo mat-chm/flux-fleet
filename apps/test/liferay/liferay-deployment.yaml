@@ -78,6 +78,8 @@ spec:
           value: "true"
         - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE #La usaremos para permitir los redirect en el cluster
           value: "domain"
+        - name: JAVA_VERSION
+          value: "zulu11"
         - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -118,7 +120,7 @@ spec:
         - mountPath: /mnt/liferay/files/portal-ext.properties
           name: liferay-portal-ext-properties
           subPath: portal-ext.properties
-        - mountPath: /mnt/liferay/files/osgi/configs/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+        - mountPath: /mnt/liferay/files/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
           name: elasticsearch-configuration-cfg
           subPath: com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config          
       restartPolicy: Always #politica de reinicio ante errores en el contenedor
