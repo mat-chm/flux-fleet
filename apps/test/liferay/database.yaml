@@ -20,7 +20,7 @@ spec:
     image:
       tag: 5.7
     auth:
-      database: lamark_dxp
+      database: lportal
       # existingSecret: liferay-database-credentials
       password: "roto2"
       username: "roto2"
