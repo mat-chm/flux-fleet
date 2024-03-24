@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - database-deployment.yaml
+  # - database.yaml
   - liferay-deployment.yaml
   - search-deployment.yaml

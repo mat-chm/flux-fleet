@@ -21,7 +21,9 @@ spec:
       tag: 5.7
     auth:
       database: lamark_dxp
-      existingSecret: liferay-database-credentials
+      # existingSecret: liferay-database-credentials
+      password: "roto2"
+      username: "roto2"
     primary:
       configuration: |-
         [mysqld]
