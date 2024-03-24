@@ -207,7 +207,7 @@ metadata:
   name: elasticsearch-configuration-cfg
   namespace: liferay
 data:
-  com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config: |-
+  com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config: |-
     operationMode="REMOTE"
     indexNamePrefix="liferay-"
     transportAddresses="elasticsearch.elasticsearch.svc.cluster.local:9300"

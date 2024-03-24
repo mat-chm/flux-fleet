@@ -120,9 +120,9 @@ spec:
         - mountPath: /mnt/liferay/files/portal-ext.properties
           name: liferay-portal-ext-properties
           subPath: portal-ext.properties
-        - mountPath: /mnt/liferay/files/com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
+        - mountPath: /mnt/liferay/files/com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
           name: elasticsearch-configuration-cfg
-          subPath: com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config          
+          subPath: com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config          
       restartPolicy: Always #politica de reinicio ante errores en el contenedor
       volumes: # descripcion de los volumenes y pvc
       - name: liferay-data
