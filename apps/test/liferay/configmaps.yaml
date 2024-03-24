@@ -170,8 +170,8 @@ data:
     users.reminder.queries.enabled=false
     terms.of.use.required=false
 
-    default.landing.page.path=/web/guest/home
-    layout.friendly.url.page.not.found=/html/portal/errors/404.html
+    # default.landing.page.path=/web/guest/home
+    # layout.friendly.url.page.not.found=/html/portal/errors/404.html
 
     company.security.auth.type=screenName
 
