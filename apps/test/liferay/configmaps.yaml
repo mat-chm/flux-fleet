@@ -120,8 +120,9 @@ metadata:
 data:
   portal-ext.properties: |-
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
-    jdbc.default.url=jdbc:liferay-database-mysql://database:3306/lamark_dxp?dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false
-    jdbc.default.username=root
+    jdbc.default.url=jdbc:mysql://liferay-database-mysql.liferay.svc.cluster.local:3306/lamark_dxp?serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
+    jdbc.default.username=roto2
+    jdbc.default.password=roto2
     retry.jdbc.on.startup.delay=5
     retry.jdbc.on.startup.max.retries=5
     company.default.name=Liferay Kubernetes
