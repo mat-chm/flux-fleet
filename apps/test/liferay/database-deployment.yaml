@@ -67,7 +67,7 @@ spec:
           value: root
         - name: MYSQL_USER
           value: roto2
-        image: biarms/mysql:5.7
+        image: mysql:5.7
         resources:
           limits:
             memory: "512Mi"
