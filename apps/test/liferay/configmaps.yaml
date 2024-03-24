@@ -115,10 +115,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: liferay-portal-setup-wizard-properties
+  name: portal-ext.properties
   namespace: liferay
 data:
-  portal-setup-wizard.properties: |-
+  portal-ext.properties: |-
     jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
     jdbc.default.url=jdbc:mysql://database:3306/lportal?dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false
     jdbc.default.username=roto2
