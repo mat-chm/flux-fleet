@@ -62,7 +62,7 @@ spec:
     matchLabels:
       app: liferay
   strategy:
-    type: RollingUpdate #Usaremos rollingupdate con el fin de disponer de zero-downtime
+    type: Recreate
   template:
     metadata:
       labels:
@@ -120,11 +120,11 @@ spec:
         - mountPath: /mnt/liferay/files/portal-ext.properties
           name: liferay-portal-ext-properties
           subPath: portal-ext.properties
-        - mountPath: /mnt/liferay/files/com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
+        - mountPath: /mnt/liferay/files/osgi/configs/com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
           name: elasticsearch-configuration-cfg
           subPath: com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config          
-      restartPolicy: Always #politica de reinicio ante errores en el contenedor
-      volumes: # descripcion de los volumenes y pvc
+      restartPolicy: Always 
+      volumes:
       - name: liferay-data
         persistentVolumeClaim:
           claimName: liferay-data
