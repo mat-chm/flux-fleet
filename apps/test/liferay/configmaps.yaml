@@ -190,14 +190,7 @@ data:
     theme.jsp.override.enabled=true
 
     com.liferay.portal.servlet.filters.gzip.GZipFilter=true
-
-    auth.pipeline.pre=com.lamark.twofa.authenticator.TwoFAAuthenticator
-
     company.security.update.password.required=false
-
-    default.user.private.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
-    default.user.public.layout.regular.theme.id=lamarkpersonalsitetheme_WAR_lamarkpersonalsitetheme
-
     search.container.page.delta.values=5,10,20,30,50,75
 
 ---
