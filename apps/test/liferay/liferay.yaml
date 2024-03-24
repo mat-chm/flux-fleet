@@ -134,6 +134,7 @@ metadata:
   labels:
     app: liferay
   name: liferay--cluster
+  namespace: liferay
 spec:
   ports:
   - name: "8080"
@@ -149,6 +150,7 @@ metadata:
   labels:
     app: liferay
   name: liferay
+  namespace: liferay
 spec:
   replicas: 1 #Inicialmente crearemos 1 pod de este deployment
   selector:
