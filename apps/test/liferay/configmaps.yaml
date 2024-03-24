@@ -208,9 +208,6 @@ metadata:
   namespace: liferay
 data:
   com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config: |-
-    operationMode="REMOTE"
-    indexNamePrefix="liferay-"
-    transportAddresses="elasticsearch.elasticsearch.svc.cluster.local:9300"
-    clusterName="liferay_cluster"
-    logExceptionsOnly="false"
+    productionModeEnabled=B"true"
+    networkHostAddresses=["http://elasticsearch.elasticsearch.svc.cluster.local:9200"]
 
