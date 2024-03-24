@@ -20,10 +20,8 @@ spec:
     image:
       tag: 5.7
     auth:
-      database: lportal
-      # existingSecret: liferay-database-credentials
-      password: "roto2"
-      username: "roto2"
+      database: lamark_dxp
+      existingSecret: liferay-database-credentials
     primary:
       configuration: |-
         [mysqld]

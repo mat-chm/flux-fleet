@@ -78,6 +78,11 @@ spec:
           value: "true"
         - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE #La usaremos para permitir los redirect en el cluster
           value: "domain"
+        - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: liferay-database-credentials
+              key: mysql-root-password
         image: liferay/portal:7.4.3.29-ga29
         resources:
           requests: #Recursos que se aprovisionan al memomento de arrancar el pod
