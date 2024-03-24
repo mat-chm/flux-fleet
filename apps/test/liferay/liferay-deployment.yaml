@@ -80,13 +80,13 @@ spec:
         - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE #La usaremos para permitir los redirect en el cluster
           value: "domain"
         image: liferay/portal:7.4.3.29-ga29
-        # resources:
-        #   requests: #Recursos que se aprovisionan al memomento de arrancar el pod
-        #     memory: "2048Mi"
-        #     cpu: "2"
-        #   limits: #Limite de recursos que podrá disponer el pod
-        #     memory: "4098Mi"
-        #     cpu: "3"
+        resources:
+          requests: #Recursos que se aprovisionan al memomento de arrancar el pod
+            memory: "2048Mi"
+            cpu: "2"
+          limits: #Limite de recursos que podrá disponer el pod
+            memory: "4098Mi"
+            cpu: "3"
         name: liferay 
         ports: #puertos abiertos en el contenedor
         - containerPort: 11311
