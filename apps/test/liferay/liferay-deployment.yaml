@@ -69,13 +69,13 @@ spec:
       containers:
       - env: 
         - name: LIFERAY_JAVA_OPTS 
-          value: -Xms2g -Xmx2g
+          value: "-Xms8g -Xmx8g -Dlog4j2.formatMsgNoLookups=true -Dfile.encoding=UTF8 -Duser.timezone=GMT -Djava.locale.providers=JRE,COMPAT,CLDR -Djava.net.preferIPv4Stack=true -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=2048m -XX:MetaspaceSize=2048m -XX:NewSize=1536m -XX:SurvivorRatio=7"
         - name: LIFERAY_MODULE_PERIOD_FRAMEWORK_PERIOD_PROPERTIES_PERIOD_OSGI_PERIOD_CONSOLE
           value: 0.0.0.0:11311
-        - name: LIFERAY_WEB_PERIOD_SERVER_PERIOD_DISPLAY_PERIOD_NODE #La usaremos con el fin de probar el cluster
-          value: "true"
-        - name: LIFERAY_REDIRECT_PERIOD_URL_PERIOD_SECURITY_PERIOD_MODE #La usaremos para permitir los redirect en el cluster
-          value: "domain"
+        - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_DELAY
+          value: "10"
+        - name: LIFERAY_RETRY_PERIOD_JDBC_PERIOD_ON_PERIOD_STARTUP_PERIOD_MAX_PERIOD_RETRIES
+          value: "10"
         - name: JAVA_VERSION
           value: "zulu11"
         - name: LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD
@@ -85,17 +85,17 @@ spec:
               key: mysql-root-password
         image: liferay/portal:7.4.3.29-ga29
         resources:
-          requests: #Recursos que se aprovisionan al memomento de arrancar el pod
+          requests:
             memory: "2048Mi"
             cpu: "2"
-          limits: #Limite de recursos que podrá disponer el pod
+          limits: 
             memory: "4098Mi"
             cpu: "3"
         name: liferay 
-        ports: #puertos abiertos en el contenedor
+        ports: 
         - containerPort: 11311
         - containerPort: 8080
-        readinessProbe: # permite controlar si el pod esta con capacidad de dar servicio, si no tiene capacidad k8s detiene el trafico a el
+        readinessProbe: 
           httpGet:
             path: "/c/portal/layout"
             port: 8080
@@ -103,14 +103,14 @@ spec:
           periodSeconds: 15
           failureThreshold: 3
           successThreshold: 3
-        livenessProbe: # Permite controlar cuando el pod se considera vivo y se mete en en balanceador. Si falla, reinicia el pod
+        livenessProbe:
           tcpSocket:
             port: 8080
           initialDelaySeconds: 120
           periodSeconds: 20
           failureThreshold: 3
           successThreshold: 1
-        volumeMounts: # directorios donde se van a montar los volumenes
+        volumeMounts:
         - mountPath: /opt/liferay/data
           name: liferay-data
         - mountPath: /mnt/liferay
